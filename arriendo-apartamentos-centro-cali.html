@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartamentos Centro Cali - Zona Rosa, Centro Histórico | Hogar Perfecto Cali</title>
+    <meta name="description" content="Apartamentos en arriendo en el Centro de Cali. Zona Rosa, Centro Histórico. Cerca universidades, centros comerciales. Contacta a Santiago +57 3126865031">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .phone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(52, 73, 94, 0.8)),
+                        url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Content Section */
+        .content {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .neighborhoods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .neighborhood-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .neighborhood-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .neighborhood-card h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .neighborhood-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .neighborhood-features li {
+            color: #34495e;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .neighborhood-features li:before {
+            content: "✓";
+            color: #d4af37;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Properties Grid */
+        .properties {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .property-image {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .property-content {
+            padding: 1.5rem;
+        }
+
+        .property-title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .property-location {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+            font-size: 0.9rem;
+        }
+
+        .property-features span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .property-cta {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .property-cta:hover {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            transform: translateY(-2px);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                gap: 1.5rem;
+                margin-top: 0.5rem;
+            }
+            
+            .phone {
+                font-size: 0.9rem;
+            }
+            
+            .hero {
+                margin-top: 120px; /* Más espacio por el nav de 2 líneas */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="/index.html" class="logo">Hogar Perfecto Cali</a>
+            <div class="nav-links">
+                <a href="/index.html">Inicio</a>
+                <a href="/arriendo-apartamentos-norte-cali.html">Norte</a>
+                <a href="/arriendo-apartamentos-centro-cali.html">Centro</a>
+                <a href="/arriendo-apartamentos-sur-cali.html">Sur</a>
+            </div>
+            <div class="phone">
+                📞 +57 312 686 5031
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Apartamentos Centro de Cali</h1>
+            <p class="hero-subtitle">
+                En el corazón de la ciudad, donde todo está a tu alcance. 
+                Cerca de escuelas, centros comerciales, transporte y vida urbana.
+            </p>
+            <a href="https://wa.me/573126865031?text=Hola%20Santiago,%20me%20interesan%20apartamentos%20en%20el%20Centro%20de%20Cali" class="cta-primary">
+                Ver Apartamentos Disponibles
+            </a>
+        </div>
+    </section>
+
+    <!-- Neighborhoods Section -->
+    <section class="content">
+        <div class="container">
+            <h2 class="section-title">Las Mejores Zonas del Centro</h2>
+            <p class="section-subtitle">
+                El centro de Cali ofrece conectividad única con toda la ciudad. 
+                Encuentra tu apartamento ideal en las zonas más convenientes y dinámicas.
+            </p>
+            
+            <div class="neighborhoods">
+                <div class="neighborhood-card">
+                    <h3>🌹 Zona Rosa</h3>
+                    <ul class="neighborhood-features">
+                        <li>Vida nocturna y entretenimiento</li>
+                        <li>Restaurantes y cafeterías</li>
+                        <li>Seguridad permanente</li>
+                        <li>Apartamentos modernos</li>
+                        <li>Transporte público eficaz</li>
+                    </ul>
+                </div>
+                
+                <div class="neighborhood-card">
+                    <h3>🏛️ Centro Histórico</h3>
+                    <ul class="neighborhood-features">
+                        <li>Arquitectura colonial preservada</li>
+                        <li>Museos y teatros cercanos</li>
+                        <li>Precios competitivos</li>
+                        <li>Acceso a universidades</li>
+                        <li>Comercio tradicional</li>
+                    </ul>
+                </div>
+                
+                <div class="neighborhood-card">
+                    <h3>🏢 Zona Financiera</h3>
+                    <ul class="neighborhood-features">
+                        <li>Cercanía a bancos y oficinas</li>
+                        <li>Edificios corporativos</li>
+                        <li>Centros comerciales modernos</li>
+                        <li>Excelente conectividad</li>
+                        <li>Apartamentos ejecutivos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties">
+        <div class="container">
+            <h2 class="section-title">Apartamentos Disponibles Centro de Cali</h2>
+            <p class="section-subtitle">
+                Apartamentos estratégicamente ubicados en el centro de la ciudad. 
+                Perfectos para estudiantes, profesionales y quienes buscan comodidad urbana.
+            </p>
+            
+            <div class="properties-grid">
+                <!-- Apartamento Zona Rosa -->
+                <div class="property-card">
+                    <div class="property-image" style="background-image: url('/8.jpg')">
+                        <div class="property-badge">Amoblado</div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Ejecutivo Zona Rosa</h3>
+                        <p class="property-location">📍 Zona Rosa, Centro de Cali</p>
+                        <div class="property-features">
+                            <span>🛏️ 1 Habitación</span>
+                            <span>🚿 1 Baño</span>
+                            <span>🏢 Amoblado</span>
+                        </div>
+                        <a href="https://wa.me/573126865031?text=Me%20interesa%20el%20apartamento%20ejecutivo%20en%20Zona%20Rosa" class="property-cta">
+                            Consultar con Santiago
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apartamento Estudiantes -->
+                <div class="property-card">
+                    <div class="property-image" style="background-image: url('/9.jpg')">
+                        <div class="property-badge">Económico</div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Apartamento Estudiantes</h3>
+                        <p class="property-location">📍 Cerca Universidades, Centro</p>
+                        <div class="property-features">
+                            <span>🛏️ 1 Habitación</span>
+                            <span>🚿 1 Baño</span>
+                            <span>🚌 Transporte</span>
+                        </div>
+                        <a href="https://wa.me/573126865031?text=Me%20interesa%20el%20apartamento%20para%20estudiantes%20en%20el%20centro" class="property-cta">
+                            Consultar con Santiago
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apartamento Centro Histórico -->
+                <div class="property-card">
+                    <div class="property-image" style="background-image: url('/10.jpg')">
+                        <div class="property-badge">Histórico</div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Apartamento Centro Histórico</h3>
+                        <p class="property-location">📍 Centro Histórico, Cali</p>
+                        <div class="property-features">
+                            <span>🛏️ 2 Habitaciones</span>
+                            <span>🚿 1 Baño</span>
+                            <span>🏛️ Colonial</span>
+                        </div>
+                        <a href="https://wa.me/573126865031?text=Me%20interesa%20el%20apartamento%20en%20el%20Centro%20Histórico" class="property-cta">
+                            Consultar con Santiago
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apartamento Zona Financiera -->
+                <div class="property-card">
+                    <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">
+                        <div class="property-badge">Moderno</div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Moderno Zona Financiera</h3>
+                        <p class="property-location">📍 Zona Financiera, Centro</p>
+                        <div class="property-features">
+                            <span>🛏️ 2 Habitaciones</span>
+                            <span>🚿 2 Baños</span>
+                            <span>🏢 Oficinas</span>
+                        </div>
+                        <a href="https://wa.me/573126865031?text=Me%20interesa%20el%20apartamento%20moderno%20en%20Zona%20Financiera" class="property-cta">
+                            Consultar con Santiago
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/573126865031?text=Hola%20Santiago,%20me%20interesan%20apartamentos%20en%20el%20Centro%20de%20Cali" class="whatsapp-float">
+        💬 Contactar a Santiago
+    </a>
+</body>
+</html>
